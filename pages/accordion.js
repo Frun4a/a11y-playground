@@ -5,8 +5,11 @@ export default function Accordion() {
   return (
     <Layout>
       <AccordionH
-        title="What is your return policy?"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        title="Links with many elements inside of them"
+        dVoiceover="Reads all at once, works great"
+        mVoiceover="Reads all at once, then focuses all text elements - bad bad bad"
+        mTalkback="Same as moWeb Voiceover"
+        NVDA
       />
 
       <AccordionH

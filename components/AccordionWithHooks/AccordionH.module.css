@@ -1,6 +1,7 @@
 .accordion_section {
   display: flex;
   flex-direction: column;
+  border: 1px slategray solid;
 }
 
 .accordion {
@@ -42,7 +43,11 @@
 .accordion_text {
   font-weight: 400;
   font-size: 14px;
-  padding: 18px;
+  /* padding: 18px; */
+}
+
+.accordion_text > p {
+  padding: 8px;
 }
 
 .display_none {

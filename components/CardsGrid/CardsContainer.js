@@ -9,20 +9,17 @@ export function CardsContainer( {children} ) {
 }
 
 
-export function Card( {cardData} ) {
+export function Card(props) {
 
   return (
     <article className={styles.card}>
       <header className={styles.card_title}>
-        <h3>{cardData.title}</h3>
+        <h3>{props.title}</h3>
       </header>
       <main className={styles.card_description}>
          Lorem Ipsum dolor amet sun Lorem Ipsum dolor amet sun Lorem Ipsum dolor amet sun
       </main>
+      {props.children}
     </article>
   )
-}
-
-Card.defaultProps = {
-  title: 'Title'
 }
