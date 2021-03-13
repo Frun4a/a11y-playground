@@ -41,25 +41,25 @@ function AccordionH(props) {
         <p className={styles.accordion_title}>How screen readers behave with <u>{props.title}</u></p>
         <Chevron className={`${styles.accordion_icon} ${setRotate}`} width={10} fill="#777" />
       </button>
-
-      <div 
-        ref={content}
-        className={`${styles.accordion_content} ${setDisplayCss}`}
-        id={contentSectionId}
-        role="region"
-        aria-labelledby={buttonId}
-        //style={{ maxHeight: setHeight }}
-      >
-
-        <div
-          className={styles.accordion_text}
-          //dangerouslySetInnerHTML={{ __html: props.content }}
+      <div style={{ position: "relative"}}>
+        <div 
+          ref={content}
+          className={`${styles.accordion_content} ${setDisplayCss}`}
+          id={contentSectionId}
+          role="region"
+          aria-labelledby={buttonId}
+          //style={{ maxHeight: setHeight }}
         >
-          <p><strong>Desktop VoiceOver: </strong>{props.dVoiceover}</p>
-          <p><strong>moWeb VoiceOver: </strong>{props.mVoiceover}</p>
-          <p><strong>moWeb Talkback: </strong>{props.mTalkback}</p>
-          <p><strong>NVDA: </strong>{props.nvda}</p>
-        </div>  
+          <div
+            className={styles.accordion_text}
+            //dangerouslySetInnerHTML={{ __html: props.content }}
+          >
+            <p><strong>Desktop VoiceOver: </strong>{props.dVoiceover}</p>
+            <p><strong>moWeb VoiceOver: </strong>{props.mVoiceover}</p>
+            <p><strong>moWeb Talkback: </strong>{props.mTalkback}</p>
+            <p><strong>NVDA: </strong>{props.nvda}</p>
+          </div>  
+        </div>
       </div>
     </div>
   )

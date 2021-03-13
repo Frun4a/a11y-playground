@@ -1,4 +1,5 @@
 import styles from './CardsContainer.module.css'
+import AccordionH from '../AccordionWithHooks/AccordionH'
 
 export function CardsContainer( {children} ) {
   return (
@@ -16,10 +17,18 @@ export function Card(props) {
       <header className={styles.card_title}>
         <h3>{props.title}</h3>
       </header>
-      <main className={styles.card_description}>
-         Lorem Ipsum dolor amet sun Lorem Ipsum dolor amet sun Lorem Ipsum dolor amet sun
+      <main 
+        className={styles.card_description}
+      >
+        {props.children}
       </main>
-      {props.children}
+      <AccordionH
+          title={props.title}
+          dVoiceover={props.dVoiceover}
+          mVoiceover={props.mVoiceover}
+          mTalkback={props.mTalkback}
+          nvda={props.nvda}
+        />
     </article>
   )
 }
