@@ -30,7 +30,7 @@ function AccordionH(props) {
   }
 
   return (
-    <div className={styles.accordion_section}>
+    <div className={styles.accordion_section} style={{ position: "relative"}}>
       <button 
         className={`${styles.accordion} ${setActive}`}
         onClick={toggleAccordion}
@@ -41,7 +41,7 @@ function AccordionH(props) {
         <p className={styles.accordion_title}>How screen readers behave with <u>{props.title}</u></p>
         <Chevron className={`${styles.accordion_icon} ${setRotate}`} width={10} fill="#777" />
       </button>
-      <div style={{ position: "relative"}}>
+      <div>
         <div 
           ref={content}
           className={`${styles.accordion_content} ${setDisplayCss}`}
