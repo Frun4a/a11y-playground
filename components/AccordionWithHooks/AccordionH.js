@@ -46,7 +46,7 @@ function AccordionH(props) {
           ref={content}
           className={`${styles.accordion_content} ${setDisplayCss}`}
           id={contentSectionId}
-          role="region"
+          role="group"
           aria-labelledby={buttonId}
           //style={{ maxHeight: setHeight }}
         >

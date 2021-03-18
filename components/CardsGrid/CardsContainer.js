@@ -1,4 +1,5 @@
 import styles from './CardsContainer.module.css'
+import nextId from'react-id-generator'
 import AccordionH from '../AccordionWithHooks/AccordionH'
 
 export function CardsContainer( {children} ) {
@@ -12,16 +13,23 @@ export function CardsContainer( {children} ) {
 
 export function Card(props) {
 
+  const cardHeadingID = nextId()
+
   return (
-    <article className={styles.card}>
-      <header className={styles.card_title}>
-        <h3>{props.title}</h3>
-      </header>
-      <main 
+    <article
+      className={`${styles.card} ${props.spans_2 ? styles.card_spans_2 : ""}`}
+      aria-labelledby={cardHeadingID}
+    >
+      <div className={styles.card_title}>
+        <h3 id={cardHeadingID}>{props.title}</h3>
+      </div>
+      <div 
         className={styles.card_description}
+        role="group"
+        aria-label="Example area"
       >
         {props.children}
-      </main>
+      </div>
       <AccordionH
           title={props.title}
           dVoiceover={props.dVoiceover}

@@ -9,21 +9,21 @@ export default function Layout({ children }) {
       <title>A11y playground | Just for fun</title>
       </Head>
       <div className={styles.container}>
-        <div className={styles.header}>
+        <header className={styles.header}>
           <Navbar />
-        </div>
+        </header>
 
-        <div className={styles.content_large}>
+        <main className={styles.content_large}>
           {children}
-        </div>
+        </main>
 
-        <div className={styles.content_small}>
-          Content small 1
-        </div>
+        <aside className={styles.content_small}>
+          I might put something useful here. In-page links probably?
+        </aside>
 
-        <div className={styles.footer}>
-          Footer
-        </div>
+        <footer className={styles.footer}>
+          <i>This is a Footer. Not much to say. This is a self-education project.</i>
+        </footer>
       </div>
     </>
   )

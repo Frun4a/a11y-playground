@@ -5,7 +5,7 @@ export default function Buttons() {
   return (
     <Layout>
       <CardsContainer>
-        <Card 
+        <Card
           title='Button inside of a heading'
           dVoiceover="Reads all at once, works great!!!"
           mVoiceover="Reads all at once, then focuses all text elements - bad bad bad"
@@ -27,7 +27,8 @@ export default function Buttons() {
               <a href="https://www.google.com/">Link to google</a>
             </h1>
         </Card>
-        <Card 
+        <Card
+            spans_2
             title='Heading that consists of many text elements'
             dVoiceover="Reads all at once, works great!!!"
             mVoiceover="Reads all at once, then focuses all text elements - bad bad bad"
