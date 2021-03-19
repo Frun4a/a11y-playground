@@ -11,9 +11,10 @@ function AccordionH(props) {
   const [setDisplayCss, setDisplayCssState] = useState(styles.display_none)
   const [setAriaExpanded, setAriaExpandedState] = useState("false")
 
+  const button = useRef(null)
   const content = useRef(null)
-  const buttonId = nextId();
-  const contentSectionId = nextId();
+  const buttonId = nextId()
+  const contentSectionId = nextId()
 
   function toggleAccordion() {
     setActiveState(setActive === "" ? styles.active : "")
@@ -29,6 +30,11 @@ function AccordionH(props) {
     setAriaExpandedState(setActive === styles.active ? "false" : "true")
   }
 
+  function shiftFocus() {
+    button.current.focus()
+    toggleAccordion()
+  }
+
   return (
     <div className={styles.accordion_section} style={{ position: "relative"}}>
       <button 
@@ -37,6 +43,7 @@ function AccordionH(props) {
         aria-expanded={setAriaExpanded}
         aria-controls={contentSectionId}
         id={buttonId}
+        ref={button}
       >
         <p className={styles.accordion_title}>How screen readers behave with <u>{props.title}</u></p>
         <Chevron className={`${styles.accordion_icon} ${setRotate}`} width={10} fill="#777" />
@@ -58,6 +65,9 @@ function AccordionH(props) {
             <p><strong>moWeb VoiceOver: </strong>{props.mVoiceover}</p>
             <p><strong>moWeb Talkback: </strong>{props.mTalkback}</p>
             <p><strong>NVDA: </strong>{props.nvda}</p>
+            <button className="sr-only" onClick={shiftFocus} tabIndex="-1">
+              Collapse the expanded accordion section and shift focus back to the accordion button
+            </button>
           </div>  
         </div>
       </div>
