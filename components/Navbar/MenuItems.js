@@ -10,8 +10,8 @@ export const MenuItems = [
     cName: 'nav_links'
   },
   {
-    title: 'Accordion',
-    url: '/accordion',
+    title: 'Native HTML5',
+    url: '/html5',
     cName: 'nav_links'
   },
   {

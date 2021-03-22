@@ -2,14 +2,22 @@ import React, { Component } from 'react'
 import styles from './Navbar.module.css'
 import { MenuItems } from './MenuItems'
 import { Button } from '../Button.js'
-import Link from 'next/link'
+import Link from './Link'
+import { useRouter } from "next/router"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
 
 class Navbar extends Component {
 
-  state = { clicked: false }
+  constructor(props) {
+    super(props)
+    this.state = {
+      clicked: false
+     }
+  }
+
+
 
   handleClick = () => {
     this.setState( {clicked: !this.state.clicked} )

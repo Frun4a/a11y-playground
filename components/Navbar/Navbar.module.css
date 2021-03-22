@@ -6,7 +6,7 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .navbar_logo {
@@ -45,6 +45,11 @@
 
 .nav_links_mobile {
   display: none;
+}
+
+.selected_link {
+  background-color: #6d76f7;
+  border-radius: 4px;
 }
 
 @media screen and (max-width:960px) {

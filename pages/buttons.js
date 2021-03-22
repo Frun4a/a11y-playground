@@ -13,7 +13,7 @@ export default function Buttons() {
           nvda="IDK"
         >
             <h1>
-              <button>Button text</button>
+              <button className="example_button">Button text</button>
             </h1>
         </Card>
         <Card 
