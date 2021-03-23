@@ -52,7 +52,7 @@ export default function Buttons() {
           mTalkback
           nvda
         >
-          <label for="cars">Choose a car:</label>
+          <label htmlFor="cars">Choose a car:</label>
           <p>
             <select name="cars" id="cars">
               <option value="volvo">Volvo</option>
@@ -73,6 +73,34 @@ export default function Buttons() {
           <p>Some text before</p>
           <hr />
           <p>Some text after</p>
+        </Card>
+
+        <Card
+          title='<iframe> element with a title property'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <iframe
+            src="about:blank"
+            title="iFrame with a title"
+          >
+          </iframe>
+        </Card>
+
+        <Card
+          title='<iframe> element with an aria-label property'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <iframe
+            src="about:blank"
+            aria-label="iFrame with an aria-label"
+          >
+          </iframe>
         </Card>
       </CardsContainer>
     </Layout>

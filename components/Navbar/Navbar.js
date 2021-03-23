@@ -3,7 +3,6 @@ import styles from './Navbar.module.css'
 import { MenuItems } from './MenuItems'
 import { Button } from '../Button.js'
 import Link from './Link'
-import { useRouter } from "next/router"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons'
@@ -18,7 +17,6 @@ class Navbar extends Component {
   }
 
 
-
   handleClick = () => {
     this.setState( {clicked: !this.state.clicked} )
   }
@@ -27,7 +25,11 @@ class Navbar extends Component {
     return (
       <nav className={styles.navbar_items}>
         <h1 className={styles.navbar_logo}>A11y playground</h1>
-        <button className={styles.menu_icon} onClick={this.handleClick}>
+        <button
+          className={styles.menu_icon}
+          onClick={this.handleClick}
+          aria-label={this.state.clicked ? "Close Navigation Menu" : "Open Navigation Menu" }
+        >
           <span>{this.state.clicked ? (<FontAwesomeIcon icon={faTimes} />)
             : (<FontAwesomeIcon icon={faBars} />)}
           </span>
@@ -45,12 +47,11 @@ class Navbar extends Component {
                     {item.title}
                   </a>
                 </Link>
-
               </li>
             )
           })}
         </ul>
-        <Button id="su_button">Sign Up</Button>
+        {/* <Button id="su_button">Sign Up</Button> */}
       </nav>
     )
   }
