@@ -7,6 +7,7 @@ export default function Layout({ children }) {
     <>
       <Head>
       <title>A11y playground | Just for fun</title>
+      <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.container}>
         <header className={styles.header}>

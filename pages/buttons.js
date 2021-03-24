@@ -1,9 +1,13 @@
 import Layout from '../components/Layout'
 import { CardsContainer, Card } from '../components/CardsGrid/CardsContainer'
+import Head from 'next/head'
 
 export default function Buttons() {
   return (
     <Layout>
+      <Head>
+        <title>Buttons and links | A11y playground</title>
+      </Head>
       <CardsContainer>
         <Card
           title='Button inside of a heading'
@@ -13,7 +17,7 @@ export default function Buttons() {
           nvda="IDK"
         >
             <h1>
-              <button className="example_button">Button text</button>
+              <button className="example_button" onClick={() => alert("Great, you clicked a button")}>Button text</button>
             </h1>
         </Card>
         <Card 
@@ -24,7 +28,7 @@ export default function Buttons() {
             nvda="IDK"
           >
             <h1>
-              <a href="https://www.google.com/">Link to google</a>
+              <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Link to google</a>
             </h1>
         </Card>
         <Card
@@ -37,7 +41,7 @@ export default function Buttons() {
           >
             <h1>
               <span>This is a heading text and there is also </span>
-              <a href="https://www.google.com/">Link to google</a>
+              <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Link to google</a>
               <span> and some more text</span>
               <p>There is even a new paragraph</p>
             </h1>

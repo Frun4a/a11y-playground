@@ -1,9 +1,13 @@
 import Layout from '../components/Layout'
 import { CardsContainer, Card } from '../components/CardsGrid/CardsContainer'
+import Head from 'next/head'
 
 export default function Buttons() {
   return (
     <Layout>
+      <Head>
+        <title>HTML5 | A11y playground</title>
+      </Head>
       <CardsContainer>
         <Card
           title='Unordered list (<ul> with <li>)'
@@ -53,14 +57,12 @@ export default function Buttons() {
           nvda
         >
           <label htmlFor="cars">Choose a car:</label>
-          <p>
-            <select name="cars" id="cars">
+            <select name="cars" id="cars" style={{ marginLeft: "10px" }}>
               <option value="volvo">Volvo</option>
               <option value="saab">Saab</option>
               <option value="mercedes">Mercedes</option>
               <option value="audi">Audi</option>
             </select>
-          </p>
         </Card>
 
         <Card
