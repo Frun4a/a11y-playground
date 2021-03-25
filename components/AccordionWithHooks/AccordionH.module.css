@@ -27,7 +27,7 @@
 }
 
 .accordion_icon {
-  margin-left: auto;
+  margin-left: 10px;
   transition: transform 0.6s ease;
 }
 
