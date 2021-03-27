@@ -15,6 +15,11 @@ export const MenuItems = [
     cName: 'nav_links'
   },
   {
+    title: 'ARIA',
+    url: '/aria',
+    cName: 'nav_links'
+  },
+  {
     title: 'WIP',
     url: '#',
     cName: 'nav_links'
