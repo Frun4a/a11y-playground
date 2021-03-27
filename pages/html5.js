@@ -74,10 +74,8 @@ export default function Buttons() {
           nvda
         >
           <figure>
-            <Image src="/elephant-660-480.jpg"
+            <img src="/elephant-660-480.jpg"
               alt="Elephant at sunset"
-              width={200}
-              height={200}
             />
             <figcaption>An elephant at sunset</figcaption>
           </figure>
@@ -129,7 +127,7 @@ export default function Buttons() {
         >
           <iframe 
             style = { { maxWidth: "200px" } }
-            src="about:blank"
+            src="/"
             title="iFrame with a title"
           >
           </iframe>
@@ -144,50 +142,10 @@ export default function Buttons() {
         >
           <iframe
             style = { { maxWidth: "200px" } }
-            src="about:blank"
+            src="/"
             aria-label="iFrame with an aria-label"
           >
           </iframe>
-        </Card>
-
-        <Card
-          title='Img test'
-          dVoiceover
-          mVoiceover
-          mTalkback
-          nvda
-        >
-          <figure>
-            <img src="/elephant-660-480.jpg"
-              alt="Elephant at sunset"
-            />
-            <figcaption>An elephant at sunset</figcaption>
-          </figure>
-          
-          <style jsx>{`
-            figure {
-              border: thin #c0c0c0 solid;
-              display: flex;
-              flex-flow: column;
-              padding: 5px;
-              max-width: 220px;
-              margin: auto;
-            }
-
-            img {
-              max-width: 220px;
-              max-height: 150px;
-            }
-
-            figcaption {
-              background-color: #222;
-              color: #fff;
-              font: italic smaller sans-serif;
-              padding: 3px;
-              text-align: center;
-            }
-          `}</style>
-
         </Card>
 
       </CardsContainer>
