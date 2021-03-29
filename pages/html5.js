@@ -1,9 +1,12 @@
+import React, { useState, useRef } from 'react'
 import Layout from '../components/Layout'
 import { CardsContainer, Card } from '../components/CardsGrid/CardsContainer'
 import Head from 'next/head'
-import Image from 'next/image'
 
-export default function Buttons() {
+export default function Html5() {
+
+  const [radioButtonsvalue, setRadioButtonsvalue] = useState("email")
+
   return (
     <Layout>
       <Head>
@@ -64,6 +67,64 @@ export default function Buttons() {
               <option value="mercedes">Mercedes</option>
               <option value="audi">Audi</option>
             </select>
+        </Card>
+
+        <Card
+          title='Radio buttons group'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <form>
+            <fieldset>
+              <legend>Please select your preferred contact method:</legend>
+              <div onChange={(e) => setRadioButtonsvalue(e.target.value)}>
+                <input type="radio" id="contactChoice1" name="contact" value="email" defaultChecked />
+                  <label htmlFor="contactChoice1">Email</label>
+
+                <input type="radio" id="contactChoice2" name="contact" value="phone" />
+                  <label htmlFor="contactChoice2">Phone</label>
+
+                <input type="radio" id="contactChoice3" name="contact" value="mail" />
+                  <label htmlFor="contactChoice3">Mail</label>
+              </div>
+              <div>
+                <button onClick={(e) => { e.preventDefault(); alert(radioButtonsvalue)}}>Submit</button>
+              </div>
+            </fieldset>
+          </form>
+
+          <style jsx>{`
+            div:first-of-type {
+              display: flex;
+              align-items: flex-start;
+              margin: 15px;
+            }
+            
+            label {
+              margin-right: 15px;
+            }
+            
+            input {
+              width: 16px;
+              height: 16px;
+              margin-right: 5px;
+            }
+            
+            button,
+            legend {
+              padding: 5px 10px;
+              font-size: 14px;
+            }
+
+            button {
+              display: block;
+              margin: 10px auto;
+            }
+          
+          `}
+          </style>
         </Card>
 
         <Card
