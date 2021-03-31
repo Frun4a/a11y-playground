@@ -1,6 +1,9 @@
 import styles from './CardsContainer.module.css'
 import nextId from'react-id-generator'
 import AccordionH from '../AccordionWithHooks/AccordionH'
+import TitleToId from '../TitleToId'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLink } from '@fortawesome/free-solid-svg-icons'
 
 export function CardsContainer( {children} ) {
   return (
@@ -14,14 +17,26 @@ export function CardsContainer( {children} ) {
 export function Card(props) {
 
   const cardHeadingID = nextId()
+  const cardId = TitleToId(props.title)
 
   return (
     <article
       className={`${styles.card} ${props.spans_2 ? styles.card_spans_2 : ""}`}
       aria-labelledby={cardHeadingID}
+      id={cardId}
     >
       <div className={styles.card_title}>
         <h3 id={cardHeadingID}>{props.title}</h3>
+        <div className={styles.link_icon_block}>
+          <a
+            href={`#${cardId}`}
+            title="Right click to copy the link to the card"
+            aria-label={`"${props.title}" card`}
+          >
+            <FontAwesomeIcon icon={faLink}/>
+          </a>
+        </div>
+
       </div>
       <div 
         className={styles.card_description}

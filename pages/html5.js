@@ -128,6 +128,54 @@ export default function Html5() {
         </Card>
 
         <Card
+          title='Checkboxes'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <fieldset>
+            <legend>Choose your interests</legend>
+            <div>
+              <input type="checkbox" id="coding" name="interest" value="coding" defaultChecked />
+              <label htmlFor="coding">Coding</label>
+            </div>
+            <div>
+              <input type="checkbox" id="music" name="interest" value="music" />
+              <label htmlFor="music">Music</label>
+            </div>
+          </fieldset>
+          <style jsx>{`
+            div {
+              margin: 15px;
+            }
+            
+            label {
+              margin-right: 15px;
+            }
+            
+            input {
+              width: 16px;
+              height: 16px;
+              margin-right: 5px;
+            }
+            
+            button,
+            legend {
+              padding: 5px 10px;
+              font-size: 14px;
+            }
+
+            button {
+              display: block;
+              margin: 10px auto;
+            }
+          
+          `}
+          </style>
+        </Card>
+
+        <Card
           title='<figure> and <figcaption>'
           dVoiceover
           mVoiceover
@@ -188,7 +236,7 @@ export default function Html5() {
         >
           <iframe 
             style = { { maxWidth: "200px" } }
-            src="/"
+            src="/iframe"
             title="iFrame with a title"
           >
           </iframe>
@@ -203,7 +251,7 @@ export default function Html5() {
         >
           <iframe
             style = { { maxWidth: "200px" } }
-            src="/"
+            src="/iframe"
             aria-label="iFrame with an aria-label"
           >
           </iframe>

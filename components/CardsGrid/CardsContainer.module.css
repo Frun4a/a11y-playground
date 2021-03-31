@@ -25,8 +25,18 @@
 }
 
 .card_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: 1.2rem;
   padding: 0.5rem;
+}
+
+.link_icon_block {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 20px;
+  margin-left: 10px;
 }
 
 .card_description {
