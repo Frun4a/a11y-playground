@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import Layout from '../components/Layout'
 import { CardsContainer, Card } from '../components/CardsGrid/CardsContainer'
+import CheckboxesGroup from '../components/html5/CheckboxesGroup'
 import Head from 'next/head'
 
 export default function Html5() {
@@ -90,7 +91,7 @@ export default function Html5() {
                   <label htmlFor="contactChoice3">Mail</label>
               </div>
               <div>
-                <button onClick={(e) => { e.preventDefault(); alert(radioButtonsvalue)}}>Submit</button>
+                <button className="example_button" onClick={(e) => { e.preventDefault(); alert('Selected radio button - ' + radioButtonsvalue)}}>Submit</button>
               </div>
             </fieldset>
           </form>
@@ -134,45 +135,7 @@ export default function Html5() {
           mTalkback
           nvda
         >
-          <fieldset>
-            <legend>Choose your interests</legend>
-            <div>
-              <input type="checkbox" id="coding" name="interest" value="coding" defaultChecked />
-              <label htmlFor="coding">Coding</label>
-            </div>
-            <div>
-              <input type="checkbox" id="music" name="interest" value="music" />
-              <label htmlFor="music">Music</label>
-            </div>
-          </fieldset>
-          <style jsx>{`
-            div {
-              margin: 15px;
-            }
-            
-            label {
-              margin-right: 15px;
-            }
-            
-            input {
-              width: 16px;
-              height: 16px;
-              margin-right: 5px;
-            }
-            
-            button,
-            legend {
-              padding: 5px 10px;
-              font-size: 14px;
-            }
-
-            button {
-              display: block;
-              margin: 10px auto;
-            }
-          
-          `}
-          </style>
+          <CheckboxesGroup />
         </Card>
 
         <Card
