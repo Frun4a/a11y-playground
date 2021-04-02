@@ -11,7 +11,7 @@ export default function Buttons() {
       <CardsContainer>
         <Card
           title='Button inside of a heading'
-          dVoiceover="Reads all at once, works great!!!"
+          dVoiceover="This text was modified by a contributor <rivenfru>"
           mVoiceover="Reads all at once, then focuses all text elements - bad bad bad"
           mTalkback="Same as moWeb Voiceover -_-"
           nvda="IDK"
