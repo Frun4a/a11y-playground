@@ -26,7 +26,7 @@ export function Card(props) {
       id={cardId}
     >
       <div className={styles.card_title}>
-        <h3 id={cardHeadingID}>{props.title}</h3>
+        <h3 id={cardHeadingID} className={styles.card_heading}>{props.title}</h3>
         <div className={styles.link_icon_block}>
           <a
             href={`#${cardId}`}

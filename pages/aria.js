@@ -47,11 +47,6 @@ export default function Buttons() {
 
 
           <style jsx>{`
-            label,
-            textarea {
-                font-size: .8rem;
-                letter-spacing: 1px;
-            }
 
             textarea {
                 padding: 10px;
@@ -59,6 +54,8 @@ export default function Buttons() {
                 border-radius: 5px;
                 border: 1px solid #ccc;
                 box-shadow: 1px 1px 1px #999;
+                min-width: 248px;
+                min-height: 95px;
             }
             
             label {
@@ -67,9 +64,9 @@ export default function Buttons() {
             }
             [role="alert"] {
               padding: 10px;
-              border: 2px solid hsl(206, 74%, 54%);
-              border-radius: 4px;
-              background: hsl(206, 74%, 90%);
+              border: 1px solid hsl(206, 74%, 54%);
+              border-radius: 5px;
+              background: hsl(206, 74%, 95%);
             }
             [role="alert"]:empty {
               display: none;

@@ -32,7 +32,6 @@ export default function Buttons() {
             </h1>
         </Card>
         <Card
-            spans_2
             title='Heading that consists of many text elements'
             dVoiceover="Reads all at once, works great!!!"
             mVoiceover="Reads all at once, then focuses all text elements - bad bad bad"

@@ -32,6 +32,11 @@
   padding: 0.5rem;
 }
 
+.card_heading {
+  margin: auto;
+  text-align: center;
+}
+
 .link_icon_block {
   flex-grow: 0;
   flex-shrink: 0;
@@ -48,7 +53,12 @@
   border: 1px dotted gray;
 }
 
-@media only screen and (max-device-width: 812px) { 
+@media (max-device-width: 812px) { 
+  
+  .cards_container {
+    grid-template-columns: 1fr;
+  }
+
   .card_spans_2 {
     grid-column: 1 / span 1;
   }

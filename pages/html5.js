@@ -139,6 +139,74 @@ export default function Html5() {
         </Card>
 
         <Card
+          title='Table'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <table>
+            <caption>Example table</caption>
+            <tr>
+                <td></td>
+                <th scope="col">Column 2</th>
+                <th scope="col">Column 3</th>
+                <th scope="col">Column 4</th>
+            </tr>
+            <tr>
+                <th scope="row">Row 2</th>
+                <td>Some text</td>
+                <td>Text value</td>
+                <td>More text</td>
+            </tr>
+            <tr>
+                <th scope="row">Row 3</th>
+                <td>Some text</td>
+                <td>Text value</td>
+                <td rowSpan="2">Cell spans 2 rows</td>
+            </tr>
+            <tr>
+                <th scope="row">Row 4</th>
+                <td>Some text</td>
+                <td>Text value</td>
+            </tr>
+            <tr>
+                <th scope="row">Row 5</th>
+                <td>Some text</td>
+                <td colSpan="2">Cell spans 2 columns</td>
+            </tr>
+          </table>
+
+          <style jsx>{`
+            caption {
+              padding: 10px;
+              caption-side: bottom;
+            }
+          
+            table {
+                border-collapse: collapse;
+                border: 2px solid rgb(200, 200, 200);
+                letter-spacing: 1px;
+            }
+          
+            td,
+            th {
+                border: 1px solid rgb(190, 190, 190);
+                padding: 7px 15px;
+            }
+          
+            th {
+                background-color: rgb(235, 235, 235);
+            }
+          
+            td {
+                text-align: center;
+            }
+          `}
+          </style>
+        </Card>
+
+        <Card
           title='<figure> and <figcaption>'
           dVoiceover
           mVoiceover

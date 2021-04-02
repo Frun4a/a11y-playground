@@ -1,24 +1,22 @@
 .accordion_section {
   display: flex;
   flex-direction: column;
-  border: 1px slategray solid;
 }
 
 .accordion {
-  background-color: #eee;
-  color: #eee;
+  border-radius: 5px;
   cursor: pointer;
   padding: 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: none;
-  transition: background-color 0.6s ease;
   overflow-x: hidden;
+  background-color :#F0F8FF;
+  transition: background-color 700ms linear;
 }
 
 .accordion:hover, .active {
-  background-color: #ccc;
+  background-color: #d4ebff;
 }
 
 .accordion_title {
@@ -36,21 +34,29 @@
   transform: rotate(90deg);
 }
 
+.accordion_content_wrapper {
+  position: relative;
+}
+
 .accordion_content {
-  background-color: white;
-  overflow: hidden;
-  /* transition: max-height 0.6s ease; */
   position: absolute;
+  top: -2px;
+  background-color: #F0F8FF;
+  border-radius: 5px;
+  overflow: hidden;
   border: 2px black solid;
-  border-top: none;
   width: 100%;
-  z-index: 5;
+  z-index: 2;
 }
 
 .accordion_text {
   font-weight: 400;
   font-size: 14px;
-  /* padding: 18px; */
+}
+
+.accordion_text hr {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .accordion_text > p {

@@ -36,7 +36,7 @@ function AccordionH(props) {
   }
 
   return (
-    <div className={styles.accordion_section} style={{ position: "relative"}}>
+    <div className={styles.accordion_section}>
       <button 
         className={`${styles.accordion} ${setActive}`}
         onClick={toggleAccordion}
@@ -48,7 +48,7 @@ function AccordionH(props) {
         <p className={styles.accordion_title}>How screen readers behave with <u>{props.title}</u></p>
         <Chevron className={`${styles.accordion_icon} ${setRotate}`} width={10} fill="#777" />
       </button>
-      <div>
+      <div className={styles.accordion_content_wrapper}>
         <div 
           ref={content}
           className={`${styles.accordion_content} ${setDisplayCss}`}
@@ -62,8 +62,11 @@ function AccordionH(props) {
             //dangerouslySetInnerHTML={{ __html: props.content }}
           >
             <p><strong>Desktop VoiceOver: </strong>{props.dVoiceover}</p>
+            <hr />
             <p><strong>moWeb VoiceOver: </strong>{props.mVoiceover}</p>
+            <hr />
             <p><strong>moWeb Talkback: </strong>{props.mTalkback}</p>
+            <hr />
             <p><strong>NVDA: </strong>{props.nvda}</p>
             <button className="sr-only" onClick={shiftFocus} tabIndex="-1">
               Collapse the expanded accordion section and shift focus back to the accordion button
