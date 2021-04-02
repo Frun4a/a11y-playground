@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import Layout from '../components/Layout'
 import { CardsContainer, Card } from '../components/CardsGrid/CardsContainer'
+import AriaLive from '../components/aria/AriaLive'
 import Head from 'next/head'
 import nextId from'react-id-generator'
 
@@ -20,6 +21,7 @@ export default function Buttons() {
         <title>ARIA | A11y playground</title>
       </Head>
       <CardsContainer>
+        
         <Card
           title='Role = "Alert"'
           dVoiceover
@@ -72,6 +74,16 @@ export default function Buttons() {
               display: none;
             }
           `}</style>
+        </Card>
+
+        <Card
+          title='Aria-live'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <AriaLive />
         </Card>
 
       </CardsContainer>
