@@ -1,24 +1,27 @@
 
 import React from 'react'
 import nextId from'react-id-generator'
+import styles from './AriaLive.module.css'
 
 class AriaLive extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      // interest_coding: true,
-      // interest_music: false
+      textAreaText: "Default text",
+      liveRegionText: "Some text",
+      ariaLive: 'off',
+      ariaAtomic: false
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
-  alertId = nextId()
+  textId = nextId()
 
   handleInputChange(event) {
     const target = event.target
+    const name = event.target.name
     const value = target.type === 'checkbox' ? target.checked : target.value
-    const name = target.name
 
     this.setState({
       [name]: value
@@ -28,54 +31,72 @@ class AriaLive extends React.Component {
   render() {
     return (
       <>
-        <label htmlFor={this.alertId}>Alert text:</label>
-        <textarea
-          id={this.alertId}
-          name={'Alert_text_area' + this.alertId}
-          rows="5"
-          cols="33"
-          onChange={this.handleChange}
-          // value={alertText}
-        >
-        </textarea>
-        <button
-          className="example_button"
-          // onClick={() => setAlertDivText(alertText)}
-        >
-          Trigger an alert
-        </button>
-        {/* <div role="alert">{alertDivText}</div> */}
-
-        <style jsx>{`
-
-          textarea {
-              padding: 10px;
-              line-height: 1.5;
-              border-radius: 5px;
-              border: 1px solid #ccc;
-              box-shadow: 1px 1px 1px #999;
-              min-width: 248px;
-              min-height: 95px;
-          }
+        <div className={styles.container}>
           
-          label {
-              display: block;
-              margin-bottom: 10px;
-          }
+          <div className={styles.left_column} onChange={this.handleInputChange}>
+            <fieldset className={styles.fieldset}>
+              <legend>Aria-live attribute value:</legend>
+              <div className={styles.radiobuttons_container}>
+                <div>
+                  <input type="radio" id="arialiveChoice1" name="ariaLive" value="off" defaultChecked />
+                  <label htmlFor="arialiveChoice1">Off</label>
+                </div>
+                <div>
+                  <input type="radio" id="arialiveChoice2" name="ariaLive" value="polite" />
+                  <label htmlFor="arialiveChoice2">Polite</label>
+                </div>
+                <div>
+                  <input type="radio" id="arialiveChoice3" name="ariaLive" value="assertive" />
+                  <label htmlFor="arialiveChoice3">Assertive</label>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset className={styles.fieldset}>
+              <legend>Aria-atomic attribute (enabled when checked)</legend>
+              <div className={styles.radiobuttons_container}>
+                <div>
+                  <input type="checkbox" id="ariaAtomic" name="ariaAtomic" checked={this.state.ariaAtomic} defaultChecked/>
+                  <label htmlFor="ariaAtomic">Aria-atomic</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
 
-          [role="alert"] {
-            padding: 10px;
-            border: 1px solid hsl(206, 74%, 54%);
-            border-radius: 5px;
-            background: hsl(206, 74%, 95%);
-          }
+          <div className={styles.right_column}>
+            <label htmlFor={this.textId} className={styles.label}>Text to announce:</label>
+            <textarea
+              id={this.textId}
+              className={styles.text_area}
+              name={'textAreaText'}
+              rows="5"
+              cols="33"
+              onChange={this.handleInputChange}
+              value={this.state.textAreaText}
+            >
+            </textarea>
+            <button
+              className="example_button"
+              onClick={() => this.setState({liveRegionText: this.state.textAreaText})}
+            >
+              Update text
+            </button>
+            <button
+              className="example_button"
+              onClick={() => setTimeout(() => this.setState({liveRegionText: this.state.textAreaText}), 5000)}
+            >
+              Update text in 5 seconds
+            </button>
+          </div>
 
-          [role="alert"]:empty {
-            display: none;
-          }
-
-        `}</style>
-    </>
+        </div>
+        <div
+          aria-live={this.state.ariaLive}
+          aria-atomic={this.state.ariaAtomic}
+          className={styles.live_region}  
+        >
+          {this.state.liveRegionText}
+        </div>
+      </>
     )
   }
 }

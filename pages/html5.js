@@ -90,10 +90,8 @@ export default function Html5() {
                 <input type="radio" id="contactChoice3" name="contact" value="mail" />
                   <label htmlFor="contactChoice3">Mail</label>
               </div>
-              <div>
-                <button className="example_button" onClick={(e) => { e.preventDefault(); alert('Selected radio button - ' + radioButtonsvalue)}}>Submit</button>
-              </div>
             </fieldset>
+            <button className="example_button" onClick={(e) => { e.preventDefault(); alert('Selected radio button - ' + radioButtonsvalue)}}>Submit</button>
           </form>
 
           <style jsx>{`
@@ -113,7 +111,6 @@ export default function Html5() {
               margin-right: 5px;
             }
             
-            button,
             legend {
               padding: 5px 10px;
               font-size: 14px;

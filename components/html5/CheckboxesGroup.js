@@ -35,11 +35,8 @@ class CheckboxesGroup extends React.Component {
               <input type="checkbox" id="music" name="interest_music" checked={this.state.interest_music} onChange={this.handleInputChange} />
               <label htmlFor="music">Music</label>
             </div>
-            <div>
-              <button className="example_button" onClick={(e) => { e.preventDefault(); alert(JSON.stringify(this.state))}}>Submit</button>
-            </div>
           </fieldset>
-
+          <button className="example_button" onClick={(e) => { e.preventDefault(); alert(JSON.stringify(this.state))}}>Submit</button>
         </form>
 
         <style jsx>{`
@@ -57,7 +54,6 @@ class CheckboxesGroup extends React.Component {
           margin-right: 5px;
         }
 
-        button,
         legend {
           padding: 5px 10px;
           font-size: 14px;
