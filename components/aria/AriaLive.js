@@ -9,14 +9,15 @@ class AriaLive extends React.Component {
     this.state = {
       textAreaText: "Default text",
       liveRegionText: "Some text",
-      ariaLive: 'off',
-      ariaAtomic: false
+      ariaLive: 'polite',
+      ariaAtomic: this.props.ariaAtomic
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   textId = nextId()
+  formId = nextId()
 
   handleInputChange(event) {
     const target = event.target
@@ -30,7 +31,7 @@ class AriaLive extends React.Component {
 
   render() {
     return (
-      <>
+      <div key={this.formId}>
         <div className={styles.container}>
           
           <div className={styles.left_column} onChange={this.handleInputChange}>
@@ -38,25 +39,25 @@ class AriaLive extends React.Component {
               <legend>Aria-live attribute value:</legend>
               <div className={styles.radiobuttons_container}>
                 <div>
-                  <input type="radio" id="arialiveChoice1" name="ariaLive" value="off" defaultChecked />
-                  <label htmlFor="arialiveChoice1">Off</label>
+                  <input type="radio" id={"arialiveChoice1" + this.formId} name={"ariaLive" + this.formId} value="off" />
+                  <label htmlFor={"arialiveChoice1" + this.formId}>Off</label>
                 </div>
                 <div>
-                  <input type="radio" id="arialiveChoice2" name="ariaLive" value="polite" />
-                  <label htmlFor="arialiveChoice2">Polite</label>
+                  <input type="radio" id={"arialiveChoice2" + this.formId} name={"ariaLive" + this.formId} value="polite" defaultChecked/>
+                  <label htmlFor={"arialiveChoice2" + this.formId}>Polite</label>
                 </div>
                 <div>
-                  <input type="radio" id="arialiveChoice3" name="ariaLive" value="assertive" />
-                  <label htmlFor="arialiveChoice3">Assertive</label>
+                  <input type="radio" id={"arialiveChoice3" + this.formId} name={"ariaLive" + this.formId} value="assertive" />
+                  <label htmlFor={"arialiveChoice3" + this.formId}>Assertive</label>
                 </div>
               </div>
             </fieldset>
-            <fieldset className={styles.fieldset}>
+            <fieldset className={styles.fieldset} disabled={true}>
               <legend>Aria-atomic attribute (enabled when checked)</legend>
               <div className={styles.radiobuttons_container}>
                 <div>
-                  <input type="checkbox" id="ariaAtomic" name="ariaAtomic" checked={this.state.ariaAtomic} defaultChecked/>
-                  <label htmlFor="ariaAtomic">Aria-atomic</label>
+                  <input type="checkbox" id={"ariaAtomic" + this.formId} name="ariaAtomic" checked={this.state.ariaAtomic} readOnly />
+                  <label htmlFor={"ariaAtomic" + this.formId}>Aria-atomic</label>
                 </div>
               </div>
             </fieldset>
@@ -96,7 +97,7 @@ class AriaLive extends React.Component {
         >
           {this.state.liveRegionText}
         </div>
-      </>
+      </div>
     )
   }
 }

@@ -20,8 +20,8 @@ export const MenuItems = [
     cName: 'nav_links'
   },
   {
-    title: 'WIP',
-    url: '#',
+    title: 'Focus',
+    url: '/focus',
     cName: 'nav_links'
   },
   // {

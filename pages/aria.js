@@ -77,13 +77,23 @@ export default function Buttons() {
         </Card>
 
         <Card
-          title='Aria-live'
+          title='Aria-live with Aria-atomic="false"'
           dVoiceover
           mVoiceover
           mTalkback
           nvda
         >
-          <AriaLive />
+          <AriaLive ariaAtomic={false} />
+        </Card>
+
+        <Card
+          title='Aria-live with Aria-atomic="true"'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <AriaLive ariaAtomic={true} />
         </Card>
 
       </CardsContainer>
