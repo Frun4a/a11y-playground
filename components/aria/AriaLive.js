@@ -9,7 +9,7 @@ class AriaLive extends React.Component {
     this.state = {
       textAreaText: "Default text",
       liveRegionText: "Some text",
-      ariaLive: 'polite',
+      ['ariaLive' + this.formId]: 'polite',
       ariaAtomic: this.props.ariaAtomic
     }
 
@@ -91,7 +91,7 @@ class AriaLive extends React.Component {
 
         </div>
         <div
-          aria-live={this.state.ariaLive}
+          aria-live={this.state['ariaLive' + this.formId]}
           aria-atomic={this.state.ariaAtomic}
           className={styles.live_region}  
         >
