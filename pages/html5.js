@@ -7,6 +7,7 @@ import Head from 'next/head'
 export default function Html5() {
 
   const [radioButtonsvalue, setRadioButtonsvalue] = useState("email")
+  const [rangeInputValue, setRangeInputValue] = useState("50")
 
   return (
     <Layout>
@@ -68,6 +69,73 @@ export default function Html5() {
               <option value="mercedes">Mercedes</option>
               <option value="audi">Audi</option>
             </select>
+        </Card>
+
+        <Card
+          title='Text input field'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <label htmlFor="name" style={{marginRight: "10px"}}>Name (4 to 8 characters):</label>
+          <input type="text" id="name" name="name" minlength="4" maxlength="8" size="10" placeholder="John Doe" />
+        </Card>
+
+        <Card
+          title='Number input field'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <label htmlFor="number" style={{marginRight: "10px"}}>Number (10-99):</label>
+          <input type="number" id="number" name="number" min="10" max="99" placeholder="50" step="1" />
+        </Card>
+
+        <Card
+          title='Date input field'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <label htmlFor="date" style={{marginRight: "10px"}}>Start date:</label>
+          <input type="date" id="date" name="date" min="1900-01-01" max="2025-12-31"/>
+        </Card>
+
+        <Card
+          title='Search input field'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <label htmlFor="search" style={{marginRight: "10px"}}>Search the website:</label>
+          <input type="search" id="search" name="search" size="50" placeholder="Bananas"/>
+        </Card>
+
+        <Card
+          title='File upload input field'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <label htmlFor="fileUpload" style={{marginRight: "10px"}}>Upload a png or jpeg file:</label>
+          <input type="file" id="fileUpload" name="fileUpload" accept="image/png, image/jpeg"/>
+        </Card>
+
+        <Card
+          title='Range input field'
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <label htmlFor="range" style={{marginRight: "10px"}}>Select the value (1-99):</label>
+          <input type="range" id="range" name="range" min="1" max="99" step="1" value={rangeInputValue} onChange={(e) => setRangeInputValue(e.target.value)}/>
+          <span style={{ marginLeft: "10px" }}>Current value: </span><span>{rangeInputValue}</span>
         </Card>
 
         <Card
