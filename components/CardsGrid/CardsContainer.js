@@ -4,6 +4,7 @@ import AccordionH from '../AccordionWithHooks/AccordionH'
 import TitleToId from '../TitleToId'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
+import { useId } from 'react-id-generator'
 
 export function CardsContainer( {children} ) {
   return (
@@ -16,7 +17,8 @@ export function CardsContainer( {children} ) {
 
 export function Card(props) {
 
-  const cardHeadingID = nextId()
+  // const cardHeadingID = nextId()
+  const [cardHeadingID] = useId();
   const cardId = TitleToId(props.title)
 
   return (
