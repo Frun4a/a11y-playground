@@ -79,7 +79,7 @@ export default function Html5() {
           nvda
         >
           <label htmlFor="name" style={{marginRight: "10px"}}>Name (4 to 8 characters):</label>
-          <input type="text" id="name" name="name" minlength="4" maxlength="8" size="10" placeholder="John Doe" />
+          <input type="text" id="name" name="name" minLength="4" maxLength="8" size="10" placeholder="John Doe" />
         </Card>
 
         <Card

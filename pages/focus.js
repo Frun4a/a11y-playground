@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import Layout from "../components/Layout";
 import { CardsContainer, Card } from "../components/CardsGrid/CardsContainer";
+import Modal from "../components/Modal/modal";
 import Head from "next/head";
 import nextId from "react-id-generator";
 
@@ -104,6 +105,21 @@ export default function Buttons() {
             aliquip ex ea commodo consequat.
           </p>
         </Card>
+
+        <Card
+          title="Modal Dialog"
+          dVoiceover
+          mVoiceover
+          mTalkback
+          nvda
+        >
+
+          <Modal>
+            Some text
+          </Modal>
+
+        </Card>
+
       </CardsContainer>
     </Layout>
   );
