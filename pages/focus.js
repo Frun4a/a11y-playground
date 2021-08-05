@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Layout from "../components/Layout";
 import { CardsContainer, Card } from "../components/CardsGrid/CardsContainer";
-import Modal from "../components/Modal/modal";
+import Modal from "../components/Modal/Modal";
 import Head from "next/head";
 import nextId from "react-id-generator";
 
@@ -114,7 +114,7 @@ export default function Buttons() {
           nvda
         >
 
-          <Modal>
+          <Modal title="The modal title">
             Some text
           </Modal>
 

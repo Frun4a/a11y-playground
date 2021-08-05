@@ -1,35 +1,73 @@
-import React from "react";
+import React, { useState ,useRef } from "react";
+import styles from "./Modal.module.css"
 
-export default class Modal extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-          show: false
-        }
-    
-        this.showModal = this.showModal.bind(this)
+const Modal = props => {
+
+    const [show, setShow] = useState(props.show);
+
+    const modalRef = useRef(null);
+
+    const showModal = (e) => {
+        setShow(true);
+        setTimeout(() => 
+        {
+            if (modalRef.current) {
+                modalRef.current.focus();
+            }
+            
+        }, 500);
+    };
+
+    const closeModal = (e) => {
+        setShow(false);
     }
 
-    showModal(e) {
-        this.setState({
-            show: true
-        })
-    }
+    if (!show) {
+        return (
+          <button
+          className="example_button"
+          onClick={(e) => showModal()}
+          >
+          Open Modal
+          </button>
+        )
+      }
 
-  render() {
-    return (
+      return (
         <>
-            <div style={(this.state.show === false) ? ({display:"none"}) : ({display:"block"})}>
-                {this.props.children}
-            </div>
-
             <button
                 className="example_button"
-                onClick={(e) => this.showModal()}
+                onClick={(e) => showModal()}
             >
-            Open Modal
+                Open Modal
             </button>
 
+            <div className={styles.modal}
+                onClick={closeModal}
+            >
+                <div className={styles.modal_content} onClick={e => e.stopPropagation()} ref={modalRef}>
+                    <div className={styles.modal_header}>
+                        <h4 className={styles.modal_title}>
+                            {props.title}
+                        </h4>
+                    </div>
+                    <div className={styles.modal_body}>
+                        {props.children}
+                    </div>
+
+                    <div className={styles.modal_footer}>
+                        <button
+                        className="example_button"
+                        onClick={(e) => closeModal()}
+                        >
+                            Close Modal
+                        </button>
+                    </div>
+                </div>
+            </div>
         </>
-    )}
+    )
+
 }
+
+export default Modal;
