@@ -1,9 +1,12 @@
 import React, { useState ,useRef } from "react";
 import styles from "./Modal.module.css"
+import { useAppContext } from '../context/state.js';
+
 
 const Modal = props => {
 
     const [show, setShow] = useState(props.show);
+    const contextState = useAppContext();
 
     const modalRef = useRef(null);
 
@@ -48,11 +51,12 @@ const Modal = props => {
                 <div className={styles.modal_content} onClick={e => e.stopPropagation()} ref={modalRef}>
                     <div className={styles.modal_header}>
                         <h4 className={styles.modal_title}>
-                            {props.title}
+                            {props.title} {contextState.ariaHidden}
                         </h4>
                     </div>
                     <div className={styles.modal_body}>
                         {props.children}
+                        <button onClick={contextState.toggleAriaHidden}>Toggle</button>
                     </div>
 
                     <div className={styles.modal_footer}>

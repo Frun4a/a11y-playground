@@ -3,8 +3,14 @@ import { createContext, useContext } from 'react';
 const AppContext = createContext();
 
 export function AppWrapper({ children }) {
+  
+  const toggleState = () => {
+    sharedState.ariaHidden = sharedState.ariaHidden === 'true' ? 'false' : 'true';
+  }
+
   let sharedState = {
-    ariaHidden: false
+    ariaHidden: 'true',
+    toggleAriaHidden: toggleState,
   }
 
   return (
