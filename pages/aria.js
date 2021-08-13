@@ -96,6 +96,33 @@ export default function Buttons() {
           <AriaLive ariaAtomic={true} />
         </Card>
 
+        <Card
+          title='Aria-hidden="false" inside of aria-hidden="true"'
+          dVoiceover="This is not working. The aria-hidden='false' container's content is not exposed to AT."
+          mVoiceover
+          mTalkback
+          nvda
+        >
+          <p>Content of the next container is hidden from screen readers using the aria-hidden="true" attribute.</p>
+          <div aria-hidden="true" aria-label="hidden content" >
+            Ipsum copy
+              <div aria-hidden="false" aria-label="exposed content">
+                Content of this container is probably exposed to screen readers using the aria-hidden="false" attribute.
+              </div>
+            Test
+          </div>
+
+          <style jsx>{`
+            div {
+              border: 2px solid #505050;
+              padding: 10px;
+              margin: 5px;
+            }
+          `}
+
+          </style>
+        </Card>
+
       </CardsContainer>
     </Layout>
   )
