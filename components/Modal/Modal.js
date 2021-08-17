@@ -29,39 +29,42 @@ const Modal = (props) => {
   }, []);
 
   useEffect(() => {
-      if (closeButtonRef.current) {
-        closeButtonRef.current.focus();
-      } 
+    if (closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
   });
 
   useEffect(() => {
-      if (show) {
-        const  focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-        const modal = modalRef.current;
-        const firstFocusableElement = modal.querySelectorAll(focusableElements)[0];
-        const focusableContent = modal.querySelectorAll(focusableElements);
-        const lastFocusableElement = focusableContent[focusableContent.length-1];
+    if (show) {
+      const focusableElements =
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+      const modal = modalRef.current;
+      const firstFocusableElement =
+        modal.querySelectorAll(focusableElements)[0];
+      const focusableContent = modal.querySelectorAll(focusableElements);
+      const lastFocusableElement =
+        focusableContent[focusableContent.length - 1];
 
-        document.addEventListener('keydown', (e) => {
-            let isTabPressed = e.key === 'Tab' || e.code === 'Tab';
+      document.addEventListener("keydown", (e) => {
+        let isTabPressed = e.key === "Tab" || e.code === "Tab";
 
-            if (!isTabPressed) {
-                return;
-            }
+        if (!isTabPressed) {
+          return;
+        }
 
-            if (e.shiftKey) {
-                if (document.activeElement === firstFocusableElement) {
-                    lastFocusableElement.focus();
-                    e.preventDefault();
-                }
-            } else {
-                if (document.activeElement === lastFocusableElement) {
-                    firstFocusableElement.focus();
-                    e.preventDefault();
-                }
-            }
-        })
-      }
+        if (e.shiftKey) {
+          if (document.activeElement === firstFocusableElement) {
+            lastFocusableElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus();
+            e.preventDefault();
+          }
+        }
+      });
+    }
   });
 
   const showModal = () => {

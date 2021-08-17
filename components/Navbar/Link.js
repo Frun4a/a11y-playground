@@ -22,4 +22,4 @@ const Named = ({ href, children }) => {
   )
 }
 
-export default Named
+export default Named;
