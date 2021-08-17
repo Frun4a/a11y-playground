@@ -1,6 +1,10 @@
-import React, { useState ,useRef } from "react";
+import React, { useState ,useRef, useEffect,  } from "react";
+import { ReactDOM } from "react";
 import styles from "./Modal.module.css"
 import { useAppContext } from '../context/state.js';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 const Modal = props => {
@@ -8,21 +12,38 @@ const Modal = props => {
     const [show, setShow] = useState(props.show);
     const contextState = useAppContext();
 
+    //Refs
     const modalRef = useRef(null);
+    const closeButtonRef = useRef(null);
+    const openButtonRef = useRef(null);
+
+    const closeOnEscapeKeyDown = (e) => {
+        if ((e.charCode || e.keyCode) === 27) {
+            closeModal();
+        }
+    }
+
+    useEffect(() => {
+        document.body.addEventListener('keydown', closeOnEscapeKeyDown);
+        return function cleanup() {
+            document.body.removeEventListener('keydown', closeOnEscapeKeyDown);
+        }
+    }, [])
 
     const showModal = (e) => {
         setShow(true);
         setTimeout(() => 
         {
-            if (modalRef.current) {
-                modalRef.current.focus();
+            if (closeButtonRef.current) {
+                closeButtonRef.current.focus();
             }
             
-        }, 500);
+        }, 300);
     };
 
     const closeModal = (e) => {
         setShow(false);
+        openButtonRef.current.focus();
     }
 
     if (!show) {
@@ -30,6 +51,7 @@ const Modal = props => {
           <button
           className="example_button"
           onClick={(e) => showModal()}
+          ref={openButtonRef}
           >
           Open Modal
           </button>
@@ -41,6 +63,7 @@ const Modal = props => {
             <button
                 className="example_button"
                 onClick={(e) => showModal()}
+                ref={openButtonRef}
             >
                 Open Modal
             </button>
@@ -48,15 +71,29 @@ const Modal = props => {
             <div className={styles.modal}
                 onClick={closeModal}
             >
-                <div className={styles.modal_content} onClick={e => e.stopPropagation()} ref={modalRef}>
+                <div
+                    className={styles.modal_content}
+                    onClick={e => e.stopPropagation()}
+                    ref={modalRef}
+                    //aria here
+                >
                     <div className={styles.modal_header}>
                         <h4 className={styles.modal_title}>
-                            {props.title} {contextState.ariaHidden}
+                            {props.title}
                         </h4>
+                        <div className={styles.close_icon_block}>
+                            <button
+                                className={styles.close_button}
+                                onClick={closeModal}
+                                ref={closeButtonRef}
+                                aria-label="Close the Modal Dialog"
+                            >
+                                <FontAwesomeIcon icon={faTimesCircle}/>
+                            </button>
+                        </div>
                     </div>
                     <div className={styles.modal_body}>
                         {props.children}
-                        <button onClick={contextState.toggleAriaHidden}>Toggle</button>
                     </div>
 
                     <div className={styles.modal_footer}>
