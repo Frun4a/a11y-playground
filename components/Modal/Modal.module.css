@@ -16,7 +16,8 @@
   background-color: white;
 }
 
-.modal_header, .modal_footer {
+.modal_header,
+.modal_footer {
   padding: 10px;
 }
 
@@ -55,4 +56,4 @@
   margin: 0px;
   width: 100%;
   padding-top: 3px;
-  }
+}
