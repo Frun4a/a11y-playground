@@ -62,4 +62,9 @@
   .card_spans_2 {
     grid-column: 1 / span 1;
   }
+
+  .cards_container {
+    grid-template-columns: minmax(100px, auto);
+    overflow-x: hidden;
+  }
 }
