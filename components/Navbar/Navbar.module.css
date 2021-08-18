@@ -51,8 +51,14 @@
 }
 
 @media screen and (max-width:812px) {
+  
+  .navbar_items h1 {
+    font-size: 1.2rem;
+  }
+  
   .navbar_items {
     position: relative;
+    height: 60px;
   }
 
   .nav_menu {
@@ -84,9 +90,9 @@
     display: table;
   }
 
-  .nav_links:hover {
-    background-color: #7577fa;
-    border-radius: 0;
+  .nav_links:hover:not(.selected_link) {
+    background-color: transparent;
+    border-radius: 0px;
   }
 
   .menu_icon {

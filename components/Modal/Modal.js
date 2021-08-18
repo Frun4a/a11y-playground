@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { ReactDOM } from "react";
 import styles from "./Modal.module.css";
 import { useAppContext } from "../context/state.js";
+import { useId } from 'react-id-generator';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +15,16 @@ const Modal = (props) => {
   const modalRef = useRef(null);
   const closeButtonRef = useRef(null);
   const openButtonRef = useRef(null);
+
+  const [headerId] = useId();
+
+  useEffect(() => {
+    if (show) {
+      document.body.classList.add('modal_open');
+    } else {
+      document.body.classList.remove('modal_open');
+    }
+  });
 
   const closeOnEscapeKeyDown = (e) => {
     if ((e.charCode || e.keyCode) === 27) {
@@ -103,10 +114,12 @@ const Modal = (props) => {
           className={styles.modal_content}
           onClick={(e) => e.stopPropagation()}
           ref={modalRef}
-          //aria here
+          role="dialog"
+          aria-modal="true"
+          aria-describedby={headerId}
         >
           <div className={styles.modal_header}>
-            <h4 className={styles.modal_title}>{props.title}</h4>
+            <h4 className={styles.modal_title} id={headerId}>{props.title}</h4>
             <div className={styles.close_icon_block}>
               <button
                 className={styles.close_button}

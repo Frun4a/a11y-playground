@@ -22,8 +22,9 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px #999;
-  min-width: 248px;
+  min-width: 100px;
   min-height: 95px;
+  width: 100%;
 }
   
 .label {

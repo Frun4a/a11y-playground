@@ -37,56 +37,59 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav
-        className={styles.navbar_items}
-        aria-modal={this.state.clicked ? "true" : "false"}
+      <div 
+        {...(this.state.clicked ? {role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Main navigation menu'} : {})}
       >
-        <h1 className={styles.navbar_logo}>A11y playground</h1>
-        <button
-          className={styles.menu_icon}
-          onClick={this.handleClick}
-          aria-label={
-            this.state.clicked
-              ? "Close Navigation Menu"
-              : "Open Navigation Menu"
-          }
+        <nav
+          className={styles.navbar_items}
         >
-          <span>
-            {this.state.clicked ? (
-              <FontAwesomeIcon icon={faTimes} />
-            ) : (
-              <FontAwesomeIcon icon={faBars} />
-            )}
-          </span>
-        </button>
-        <ul
-          className={
-            this.state.clicked
-              ? `${styles.nav_menu} ${styles.active}`
-              : styles.nav_menu
-          }
-        >
-          {MenuItems.map((item, index) => {
-            return (
-              <li key={index}>
-                <Link href={item.url}>
-                  <a
-                    className={
-                      item.cName == "nav_links"
-                        ? styles.nav_links
-                        : item.cName == "nav_links_mobile"
-                        ? styles.nav_links_mobile
-                        : null
-                    }
-                  >
-                    {item.title}
-                  </a>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+          <h1 className={styles.navbar_logo}>A11y playground</h1>
+          <button
+            className={styles.menu_icon}
+            onClick={this.handleClick}
+            aria-label={
+              this.state.clicked
+                ? "Close Navigation Menu"
+                : "Open Navigation Menu"
+            }
+          >
+            <span>
+              {this.state.clicked ? (
+                <FontAwesomeIcon icon={faTimes} />
+              ) : (
+                <FontAwesomeIcon icon={faBars} />
+              )}
+            </span>
+          </button>
+          <ul
+            className={
+              this.state.clicked
+                ? `${styles.nav_menu} ${styles.active}`
+                : styles.nav_menu
+            }
+          >
+            {MenuItems.map((item, index) => {
+              return (
+                <li key={index}>
+                  <Link href={item.url}>
+                    <a
+                      className={
+                        item.cName == "nav_links"
+                          ? styles.nav_links
+                          : item.cName == "nav_links_mobile"
+                          ? styles.nav_links_mobile
+                          : null
+                      }
+                    >
+                      {item.title}
+                    </a>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
     );
   }
 }

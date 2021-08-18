@@ -4,7 +4,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
       grid-gap: 1rem;
-      padding: 1rem;
+      padding: 0.2rem 1rem;
   }
 
 /* Cards */
@@ -66,5 +66,13 @@
   .cards_container {
     grid-template-columns: minmax(100px, auto);
     overflow-x: hidden;
+  }
+
+  .card_title {
+    font-size: 1rem;
+  }
+
+  .card_description {
+    font-size: 0.75rem;
   }
 }
