@@ -116,7 +116,7 @@ const Modal = (props) => {
           ref={modalRef}
           role="dialog"
           aria-modal="true"
-          aria-describedby={headerId}
+          aria-labelledby={headerId}
         >
           <div className={styles.modal_header}>
             <h4 className={styles.modal_title} id={headerId}>{props.title}</h4>
