@@ -15,25 +15,30 @@ body.modal_open {
 }
 
 .sr-only:not(:focus):not(:active) {
-  clip: rect(0 0 0 0); 
+  clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
-  white-space: nowrap; 
+  white-space: nowrap;
   width: 1px;
 }
 
 /* Example button */
 .example_button {
-  background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%);
-  margin: 5px; 
+  background-image: linear-gradient(
+    to right,
+    #2b5876 0%,
+    #4e4376 51%,
+    #2b5876 100%
+  );
+  margin: 5px;
   padding: 5px 10px;
   text-align: center;
   text-transform: uppercase;
   transition: all 0.3s ease;
   background-size: 200% auto;
-  color: white;            
+  color: white;
   border-radius: 10px;
   display: block;
   border: 2px solid #2b5876;
@@ -50,4 +55,26 @@ body.modal_open {
   box-shadow: 0 0 0 5px rgba(21, 156, 228, 0.6);
 }
 
-         
+/* This should remove moweb Safari zooming in on inputs */
+@supports (-webkit-overflow-scrolling: touch) {
+  @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-device-width: 1024px) {
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select:focus,
+    textarea {
+      font-size: 16px;
+    }
+  }
+}
