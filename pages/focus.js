@@ -108,7 +108,8 @@ export default function Buttons() {
 
         <Card title="Modal Dialog" dVoiceover mVoiceover mTalkback nvda>
           <Modal title="The modal title">
-            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
             quae ab illo inventore veritatis et quasi architecto beatae vitae
             dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
@@ -121,7 +122,8 @@ export default function Buttons() {
             aliquid ex ea commodi consequatur? Quis autem vel eum iure
             reprehenderit qui in ea voluptate velit esse quam nihil molestiae
             consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
-            pariatur?"
+            pariatur?
+            </p>
           </Modal>
         </Card>
       </CardsContainer>

@@ -24,7 +24,7 @@ const Modal = (props) => {
     } else {
       document.body.classList.remove('modal_open');
     }
-  });
+  },[show]);
 
   const closeOnEscapeKeyDown = (e) => {
     if ((e.charCode || e.keyCode) === 27) {
@@ -38,12 +38,6 @@ const Modal = (props) => {
       document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
     };
   }, []);
-
-  useEffect(() => {
-    if (closeButtonRef.current) {
-      closeButtonRef.current.focus();
-    }
-  });
 
   useEffect(() => {
     if (show) {
@@ -75,6 +69,7 @@ const Modal = (props) => {
           }
         }
       });
+      firstFocusableElement.focus();
     }
   });
 
@@ -87,18 +82,6 @@ const Modal = (props) => {
     openButtonRef.current.focus();
   };
 
-  if (!show) {
-    return (
-      <button
-        className="example_button"
-        onClick={(e) => showModal()}
-        ref={openButtonRef}
-      >
-        Open Modal
-      </button>
-    );
-  }
-
   return (
     <>
       <button
@@ -109,7 +92,7 @@ const Modal = (props) => {
         Open Modal
       </button>
 
-      <div className={styles.modal} onClick={closeModal}>
+      <div className={styles.modal} onClick={closeModal} style={show ? {display: 'flex'} : {display: 'none'} }>
         <div
           className={styles.modal_content}
           onClick={(e) => e.stopPropagation()}

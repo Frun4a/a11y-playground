@@ -10,6 +10,11 @@ export const MenuItems = [
     cName: 'nav_links'
   },
   {
+    title: 'Forms',
+    url: '/forms',
+    cName: 'nav_links'
+  },
+  {
     title: 'Native HTML5',
     url: '/html5',
     cName: 'nav_links'
