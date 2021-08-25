@@ -75,7 +75,7 @@ export default function Html5() {
             type="search"
             id="search"
             name="search"
-            size="50"
+            size="30"
             placeholder="Bananas"
           />
         </Card>

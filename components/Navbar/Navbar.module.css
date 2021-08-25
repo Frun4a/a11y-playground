@@ -30,6 +30,8 @@
 }
 
 .nav_links {
+  display: inline-flex;
+  align-items: center;
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
