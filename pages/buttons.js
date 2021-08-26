@@ -11,8 +11,15 @@ export default function Buttons() {
         <title>Buttons and links | A11y playground</title>
       </Head>
       <CardsContainer>
-        <Card>
-          <ToggleButton caption="Mute" />
+        <Card
+          title='Toggle button (uses the "aria-pressed" attribute)'
+          dVoiceover='Reads "Toggle button" for the unselected button and "selected, toggle button" for the selected one.
+                      When the unselected button is activated, VO reads "selected.
+                      When the selected button is activated, VO does not read "unselected" (remains silent).'
+        >
+
+          <ToggleButton caption="Mute #1" pressed={false} icon={true} />
+          <ToggleButton caption="Filters" pressed={true} icon={false} />
         </Card>
 
         <Card
