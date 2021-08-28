@@ -46,6 +46,6 @@ const ToggleButton = (props) => {
       )}
     </button>
   );
-};
+}
 
 export default ToggleButton;
