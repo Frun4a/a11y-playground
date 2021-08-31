@@ -1,0 +1,15 @@
+.read_more {
+  transition: all 0.75s;
+  overflow: hidden;
+  
+  margin-bottom: 0.5rem;
+}
+
+.read_more_less_button {
+  background-color: transparent;
+  border: none;
+  color: rgb(0, 0, 238);
+  font-style: normal;
+  text-decoration: underline;
+  cursor: pointer;
+}
