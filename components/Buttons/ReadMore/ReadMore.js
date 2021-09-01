@@ -2,22 +2,34 @@ import { React, useState, useRef, useEffect } from "react";
 import styles from "./ReadMore.module.css";
 
 function truncateCopy(copy, type, length) {
-  if (copy && ["words", "characters"].includes(type)) {
+  if (copy && ["words", "characters"].includes(type) && (length>0)) {
     if (type === "characters") {
-       if (copy.length > length) {
-        return copy.substring(0, length) + "...";
-       } else {
-         return copy + "...";
-       }
+      if (copy.length > length) {
+        const truncatedStringCharacters = copy.substring(0, length);
+        if (
+          [",", "!", ".", "?", ":", ";", " "].includes(
+            truncatedStringCharacters.slice(-1)
+          )
+        ) {
+          return truncatedStringCharacters.slice(0, -1) + "...";
+        } else {
+          return truncatedStringCharacters + "...";
+        }
+      } else {
+        return copy.trim() + "...";
+      }
     } else {
-      const arrayOfWords = copy.split(' ');
+      // type is words
+      const arrayOfWords = copy.split(" ");
       if (arrayOfWords.length > length) {
         arrayOfWords.length = length;
-        const truncatedCopy =  arrayOfWords.join(' ');
-        if ([',', '!', '.', '?', ':', ';'].includes(truncatedCopy.slice(-1))) {
-          return truncatedCopy.slice(0, -1) + '...';
+        const truncatedCopy = arrayOfWords.join(" ");
+        if (
+          [",", "!", ".", "?", ":", ";", " "].includes(truncatedCopy.slice(-1))
+        ) {
+          return truncatedCopy.slice(0, -1) + "...";
         } else {
-          return truncatedCopy + '...';
+          return truncatedCopy + "...";
         }
       }
     }
@@ -59,6 +71,7 @@ const ReadMore = (props) => {
 
       // Expand the section
       setExpanded(!expanded);
+      divRef.current.focus();
     } else {
       //Expanded -> Collapsed transition
 
@@ -82,8 +95,8 @@ const ReadMore = (props) => {
 
   return (
     <>
-      <div className={styles.read_more} ref={divRef}>
-        {expanded ? copy.fullCopy : copy.truncatedCopy}
+      <div className={styles.read_more} ref={divRef} tabIndex="-1">
+        <p>{expanded ? copy.fullCopy : copy.truncatedCopy}</p>
       </div>
       <button
         type="button"
