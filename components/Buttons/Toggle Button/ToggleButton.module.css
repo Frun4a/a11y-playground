@@ -2,10 +2,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  /* border-color: #000; */
-  /* background-color: transparent; */
-
   background: #ffffff;
   border: 1px solid #000000;
   box-shadow: inset -2px -2px 0px rgba(0, 0, 0, 0.3);
@@ -13,10 +9,8 @@
   font-family: inherit;
   font-weight: 600;
   cursor: pointer;
-  /* background-color: #fff; */
   color: #000;
   border-radius: 5px;
-  /* box-shadow: 0.125em 0.125em 0 #000, 0.25em 0.25em #fff; */
 
   padding: 0.25em 0.75em;
   margin: 0.25em 0.75em;

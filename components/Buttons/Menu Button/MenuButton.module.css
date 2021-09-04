@@ -13,10 +13,10 @@
   cursor: pointer;
   background-color: #fff;
   color: #000;
-  border-radius: 8px;
+  border-radius: 5px;
 
   padding: 0.25em 0.75em;
-  margin: 0.25em 0.75em;
+  margin: 0.25rem 0.75rem;
   min-height: 34px;
   min-width: 10ch;
 
@@ -34,3 +34,36 @@
   transform: rotate(-180deg);
 }
 
+ul.hidden {
+  display: none;
+}
+
+ul.menu {
+  position:  absolute;
+  margin-left: 0.75rem;
+  padding: 7px 4px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #eee;
+  z-index: 3;
+}
+
+ul.menu [role="menuitem"] {
+  margin: 0;
+  padding: 6px;
+  display: block;
+  min-width: 4em;
+  background-color: #eee;
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+ul.menu [role="menuitem"].focus,
+ul.menu [role="menuitem"]:focus,
+ul.menu [role="menuitem"]:hover {
+  /* border: 2px solid #034575; */
+  background: #034575;
+  color: #fff;
+  outline: none;
+}
