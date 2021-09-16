@@ -158,7 +158,7 @@ export default function Buttons() {
         >
           <div style={{ position: "relative" }}>
             <button
-              style={{ width: "200px", height: "200px" }}
+              style={{ width: "200px", height: "200px", borderRadius:"0px", border:"1px solid black", display:"block" }}
               onClick={() => alert("Clicked")}
             >
               Button Text
@@ -171,10 +171,38 @@ export default function Buttons() {
                 zIndex: "2000",
               }}
             >
-              Text
+              Text element
             </p>
           </div>
         </Card>
+
+        <Card
+          title="Text in front of links"
+          dVoiceover=""
+          mVoiceover=""
+          mTalkback="S"
+          nvda=""
+        >
+          <div style={{ position: "relative" }}>
+            <a
+              style={{ width: "200px", height: "200px", borderRadius:"0px", border:"1px solid black", display:"block" }}
+              onClick={() => alert("Clicked")}
+            >
+              Link Text
+            </a>
+            <p
+              style={{
+                position: "absolute",
+                top: "50px",
+                left: "50px",
+                zIndex: "2000",
+              }}
+            >
+              Text element
+            </p>
+          </div>
+        </Card>
+
       </CardsContainer>
 
       <style jsx>{`
