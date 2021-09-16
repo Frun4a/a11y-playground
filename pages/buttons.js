@@ -18,7 +18,13 @@ export default function Buttons() {
       </Head>
       <CardsContainer>
         <Card title="Read More & Less (characters)">
-          <div style={{ marginBottom: '0.5rem', paddingBottom: '0.5rem', borderBottom: '1px solid gray' }}>
+          <div
+            style={{
+              marginBottom: "0.5rem",
+              paddingBottom: "0.5rem",
+              borderBottom: "1px solid gray",
+            }}
+          >
             <label htmlFor="characters" style={{ marginRight: "10px" }}>
               Number of characters:
             </label>
@@ -44,7 +50,13 @@ export default function Buttons() {
         </Card>
 
         <Card title="Read More & Less (words)">
-        <div style={{ marginBottom: '0.5rem', paddingBottom: '0.5rem', borderBottom: '1px solid gray' }}>
+          <div
+            style={{
+              marginBottom: "0.5rem",
+              paddingBottom: "0.5rem",
+              borderBottom: "1px solid gray",
+            }}
+          >
             <label htmlFor="words" style={{ marginRight: "10px" }}>
               Number of words:
             </label>
@@ -144,12 +156,25 @@ export default function Buttons() {
           mTalkback="S"
           nvda=""
         >
-          <button style={{"width": "200px", "height":"200px"}} onClick={() => alert("Clicked")}>
-            Button Text
-          </button>
-          <p style={{"position":"absolute", "top":"50px", "left":"50px", "zIndex":"2000"}}>Text</p>
+          <div style={{ position: "relative" }}>
+            <button
+              style={{ width: "200px", height: "200px" }}
+              onClick={() => alert("Clicked")}
+            >
+              Button Text
+            </button>
+            <p
+              style={{
+                position: "absolute",
+                top: "50px",
+                left: "50px",
+                zIndex: "2000",
+              }}
+            >
+              Text
+            </p>
+          </div>
         </Card>
-
       </CardsContainer>
 
       <style jsx>{`
