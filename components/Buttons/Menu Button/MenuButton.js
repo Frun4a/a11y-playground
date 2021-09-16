@@ -1,33 +1,38 @@
 import { useState, useRef, useEffect } from "react";
-import nextId from "react-id-generator";
+import useId from "react-id-generator";
 import styles from "./MenuButton.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
-const menuId = nextId();
-const menuButtonId = nextId();
+const menuId = useId();
+const menuButtonId = useId();
 
 const MenuButton = (props) => {
   const [expanded, setExpanded] = useState(false);
 
   const handleMenuButtonCLick = () => {
+    console.log('handleMenuButtonCLick executed');
     setExpanded(!expanded);
   };
 
   useEffect(() => {
     const menuButton = document.getElementById(menuButtonId);
 
+    console.log("Adding an even listener" + " id is" + " " + menuButtonId);
+
     document.addEventListener("keydown", (e) => {
-      console.log(e.key +"__"+e.code);
-      // if (e.key === "ArrowDown") {
-      //   if (document.activeElement === menuButton) {
-      //     console.log("Active element is the Menu button");
-      //     handleMenuButtonCLick();
-      //   }
-      // }
+      // console.log(e.key +"______"+e.code) ;
+      if (document.activeElement === menuButton) {
+        if (e.key === "ArrowDown") {
+          setExpanded(!expanded);
+          console.log("Menu Button + Down arrow event");
+          e.stopPropagation();
+          e.preventDefault();
+        }
+      }
     });
-  }), [];
+  }, [menuButtonId]);
 
   return (
     <div className={styles.menuButton_group}>

@@ -136,6 +136,20 @@ export default function Buttons() {
             <p>There is even a new paragraph</p>
           </h1>
         </Card>
+
+        <Card
+          title="Text in front of buttons"
+          dVoiceover=""
+          mVoiceover=""
+          mTalkback="S"
+          nvda=""
+        >
+          <button style={{"width": "200px", "height":"200px"}} onClick={() => alert("Clicked")}>
+            Button Text
+          </button>
+          <p style={{"position":"absolute", "top":"50px", "left":"50px", "zIndex":"2000"}}>Text</p>
+        </Card>
+
       </CardsContainer>
 
       <style jsx>{`
